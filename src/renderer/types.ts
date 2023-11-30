@@ -1,17 +1,15 @@
+import type { ComponentPublicInstance } from 'vue'
+
 export type {
+  // When using Client Routing
+  // @src https://vike.dev/clientRouting
   PageContextServer,
-  /*
-  // When using Client Routing https://vike.dev/clientRouting
   PageContextClient,
   PageContext,
-  /*/
   // When using Server Routing
-  PageContextClientWithServerRouting as PageContextClient,
-  PageContextWithServerRouting as PageContext
-  //*/
+  // PageContextClientWithServerRouting as PageContextClient,
+  // PageContextWithServerRouting as PageContext
 } from 'vike/types'
-export type { PageProps }
-export type { Component }
 
 // https://vike.dev/pageContext#typescript
 declare global {
@@ -30,10 +28,8 @@ declare global {
   }
 }
 
-import type { ComponentPublicInstance } from 'vue'
-
 // eslint-disable-next-line max-len
 /** @src https://stackoverflow.com/questions/63985658/how-to-type-vue-instance-out-of-definecomponent-in-vue-3/63986086#63986086 */
-type Component = ComponentPublicInstance
-type Page = Component
-type PageProps = {}
+export type Component = ComponentPublicInstance
+export type Page = Component
+export type PageProps = {}
