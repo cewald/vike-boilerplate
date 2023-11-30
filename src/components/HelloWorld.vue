@@ -20,7 +20,12 @@ defineProps<{
         href="https://vuejs.org/"
         target="_blank"
         rel="noopener"
-      >Vue 3</a>.
+      >Vue 3</a> +
+      <a
+        href="https://vike.dev/"
+        target="_blank"
+        rel="noopener"
+      >Vike</a>.
     </h3>
   </div>
 </template>
