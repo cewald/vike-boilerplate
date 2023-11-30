@@ -2,6 +2,8 @@
 import HelloWorld from '@/components/HelloWorld.vue'
 import TheWelcome from '@/components/TheWelcome.vue'
 import VikeLink from '@/components/VikeLink.vue'
+import { urls as movieUrls } from '@/pages/movie/index.page.route'
+
 </script>
 
 <template>
@@ -20,9 +22,18 @@ import VikeLink from '@/components/VikeLink.vue'
           Index
         </VikeLink>
         <span>|</span>
-        <VikeLink href="/other">
-          Other
+        <VikeLink href="/about">
+          About
         </VikeLink>
+        <template
+          v-for="(href) in movieUrls"
+          :key="href"
+        >
+          <span>|</span>
+          <VikeLink :href="'/movie/' + href">
+            {{ href }}
+          </VikeLink>
+        </template>
       </nav>
       <slot>
         <HelloWorld msg="Fallback" />

@@ -1,7 +1,7 @@
-<template>
-  <Hello msg="Index" />
-</template>
-
 <script setup lang="ts">
 import Hello from '@/components/HelloWorld.vue'
 </script>
+
+<template>
+  <Hello msg="Home" />
+</template>

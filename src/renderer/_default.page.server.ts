@@ -51,6 +51,6 @@ async function renderToString(app: App) {
 }
 
 // See https://vike.dev/data-fetching
-const passToClient = ['pageProps', 'urlPathname']
+const passToClient = ['pageProps', 'routeParams']
 
 export { render, passToClient }
