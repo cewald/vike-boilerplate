@@ -1,3 +1,3 @@
-export default '/movie/@movieId'
+export default '/content/@name'
 
 export const urls = ['lorem', 'ipsum', 'sit']

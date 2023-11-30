@@ -6,8 +6,8 @@ const { routeParams, urlPathname } = usePageContext()
 </script>
 
 <template>
-  <Hello msg="Movie" />
+  <Hello msg="Content" />
   <div>
-    <div>{{ routeParams?.movieId || null }} | {{ urlPathname || null }}</div>
+    <div>{{ routeParams?.name || null }} | {{ urlPathname || null }}</div>
   </div>
 </template>

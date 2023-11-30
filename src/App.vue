@@ -3,7 +3,7 @@ import HelloWorld from '@/components/HelloWorld.vue'
 import TheWelcome from '@/components/TheWelcome.vue'
 import VikeLink from '@/components/VikeLink.vue'
 import Logo from '@/assets/logo.svg'
-import { urls as movieUrls } from '@/pages/movie/index.page.route'
+import { urls as contentUrls } from '@/pages/content/index.page.route'
 </script>
 
 <template>
@@ -21,11 +21,11 @@ import { urls as movieUrls } from '@/pages/movie/index.page.route'
           About
         </VikeLink>
         <template
-          v-for="(href) in movieUrls"
+          v-for="(href) in contentUrls"
           :key="href"
         >
           <span>|</span>
-          <VikeLink :href="'/movie/' + href">
+          <VikeLink :href="'/content/' + href">
             {{ href }}
           </VikeLink>
         </template>
@@ -97,3 +97,4 @@ header {
   }
 }
 </style>
+@/pages/content/index.page.route
