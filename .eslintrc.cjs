@@ -8,7 +8,8 @@ module.exports = {
     'plugin:vue/vue3-essential',
     'plugin:vue/vue3-recommended',
     'plugin:vue/vue3-strongly-recommended',
-    '@vue/eslint-config-typescript'
+    '@vue/eslint-config-typescript',
+    'plugin:tailwindcss/recommended',
   ],
   parserOptions: {
     ecmaVersion: 'latest'
@@ -32,7 +33,7 @@ module.exports = {
       }
     },
     {
-      files: ['scripts/*.mjs'],
+      files: ['tailwind.config.js', 'postcss.config.js', 'scripts/*.mjs'],
       env: {
         node: true
       }

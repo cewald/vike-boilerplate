@@ -9,7 +9,7 @@ import { urls as movieUrls } from '@/pages/movie/index.page.route'
 <template>
   <header>
     <Logo
-      class="logo"
+      class="logo max-w-[125px]"
     />
     <div class="wrapper">
       <nav>
