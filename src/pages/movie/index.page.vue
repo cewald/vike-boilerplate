@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { usePageContext } from '@/renderer/usePageContext'
+import { usePageContext } from '@/composables/usePageContext'
 import Hello from '@/components/HelloWorld.vue'
 
 const { routeParams, urlPathname } = usePageContext()

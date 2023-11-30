@@ -3,7 +3,7 @@ import '@/assets/main.scss'
 import { createSSRApp, defineComponent, h } from 'vue'
 import { createPinia } from 'pinia'
 import App from '@/App.vue'
-import { setPageContext } from '@/renderer/usePageContext'
+import { setPageContext } from '@/composables/usePageContext'
 import type { Component, PageContext, PageProps } from '@/renderer/types'
 
 export function createApp(Page: Component, pageProps: PageProps | undefined, pageContext: PageContext) {
