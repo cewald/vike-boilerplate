@@ -11,7 +11,8 @@ export default defineConfig({
     vue(),
     vueJsx(),
     vike({
-      prerender: true
+      prerender: true,
+      disableAutoFullBuild: true,
     }),
   ],
   resolve: {
