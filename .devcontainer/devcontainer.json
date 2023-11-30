@@ -1,0 +1,37 @@
+{
+  "name": "@cewald/vike-app",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:1-20-bullseye",
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/jckimble/devcontainer-features/ngrok:3": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "bradlc.vscode-tailwindcss",
+        "csstools.postcss",
+        "dbaeumer.vscode-eslint",
+        "Vue.volar",
+        "Vue.vscode-typescript-vue-plugin",
+        "tamasfe.even-better-toml"
+      ]
+    }
+  },
+  "postCreateCommand": "npm i",
+  "forwardPorts": [
+    3333,
+    3331
+  ],
+  "portsAttributes": {
+    "3333": {
+      "label": "vue-dev",
+      "protocol": "https",
+      "elevateIfNeeded": false
+    },
+    "3331": {
+      "label": "vue-preview",
+      "protocol": "https",
+      "elevateIfNeeded": false
+    }
+  }
+}
