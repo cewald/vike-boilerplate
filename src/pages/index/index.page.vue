@@ -1,7 +1,7 @@
 <template>
-  This page is rendered to HTML and interactive: <Counter />
+  This page is rendered to HTML and interactive: <Counter msg="Test" />
 </template>
 
-<script setup>
-import Counter from '../components/Counter.vue'
+<script setup lang="ts">
+import Counter from '@/components/HelloWorld.vue'
 </script>

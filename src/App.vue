@@ -14,9 +14,10 @@ import TheWelcome from './components/TheWelcome.vue'
     >
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <slot>
+        <HelloWorld msg="Fallback" />
+      </slot>
     </div>
-    <slot />
   </header>
 
   <main>
