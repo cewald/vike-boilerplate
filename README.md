@@ -1,6 +1,6 @@
 # @cewald/vike-boilerplate
 
-This template should help get you started developing with Vue 3 in Vite.
+This template should help get you started developing with Vue 3 in Vite using Vike (SSG).
 
 ## Recommended IDE Setup
 
@@ -37,6 +37,7 @@ npm run dev
 
 ```sh
 npm run build
+npm run preview
 ```
 
 ### Run Unit Tests with [Vitest](https://vitest.dev/)
