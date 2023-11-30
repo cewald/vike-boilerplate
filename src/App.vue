@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import HelloWorld from '@/components/HelloWorld.vue'
+import TheWelcome from '@/components/TheWelcome.vue'
+import VikeLink from '@/components/VikeLink.vue'
 </script>
 
 <template>
@@ -14,6 +15,15 @@ import TheWelcome from './components/TheWelcome.vue'
     >
 
     <div class="wrapper">
+      <nav>
+        <VikeLink href="/">
+          Index
+        </VikeLink>
+        <span>|</span>
+        <VikeLink href="/other">
+          Other
+        </VikeLink>
+      </nav>
       <slot>
         <HelloWorld msg="Fallback" />
       </slot>
@@ -25,14 +35,42 @@ import TheWelcome from './components/TheWelcome.vue'
   </main>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 header {
   line-height: 1.5;
+
+  nav{
+    margin: 0 0 2rem 0;
+
+    a {
+      color: var(--color-text);
+
+      &:hover {
+        color: var(--vt-c-indigo);
+      }
+    }
+
+    span {
+      color: var(--color-border);
+      margin: 0 1rem;
+    }
+  }
 }
 
 .logo {
   display: block;
   margin: 0 auto 2rem;
+}
+
+@media (max-width: 1024px) {
+  header {
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+  }
 }
 
 @media (min-width: 1024px) {

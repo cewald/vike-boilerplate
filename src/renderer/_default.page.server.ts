@@ -1,14 +1,8 @@
-export { render }
-
-// See https://vike.dev/data-fetching
-export const passToClient = ['pageProps', 'urlPathname']
-
-import { renderToString as renderToString_ } from '@vue/server-renderer'
 import type { App } from 'vue'
+import { renderToString as renderToString_ } from '@vue/server-renderer'
 import { escapeInject, dangerouslySkipEscape } from 'vike/server'
 import { createApp } from '@/main'
-import logoUrl from './logo.svg'
-import type { PageContextServer } from '@/renderer/types'
+import { type PageContextServer } from '@/renderer/types'
 
 async function render(pageContext: PageContextServer): Promise<any> {
   const { Page, pageProps } = pageContext
@@ -27,7 +21,6 @@ async function render(pageContext: PageContextServer): Promise<any> {
     <html lang="en">
       <head>
         <meta charset="UTF-8" />
-        <link rel="icon" href="${logoUrl}" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description" content="${desc}" />
         <title>${title}</title>
@@ -56,3 +49,8 @@ async function renderToString(app: App) {
   if (err) throw err
   return appHtml
 }
+
+// See https://vike.dev/data-fetching
+const passToClient = ['pageProps', 'urlPathname']
+
+export { render, passToClient }

@@ -1,5 +1,5 @@
 <template>
-  <Hello msg="Index" />
+  <Hello msg="Other" />
 </template>
 
 <script setup lang="ts">
