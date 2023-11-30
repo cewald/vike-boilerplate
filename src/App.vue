@@ -2,20 +2,15 @@
 import HelloWorld from '@/components/HelloWorld.vue'
 import TheWelcome from '@/components/TheWelcome.vue'
 import VikeLink from '@/components/VikeLink.vue'
+import Logo from '@/assets/logo.svg'
 import { urls as movieUrls } from '@/pages/movie/index.page.route'
-
 </script>
 
 <template>
   <header>
-    <img
-      alt="Vue logo"
+    <Logo
       class="logo"
-      src="./assets/logo.svg"
-      width="125"
-      height="125"
-    >
-
+    />
     <div class="wrapper">
       <nav>
         <VikeLink href="/">
