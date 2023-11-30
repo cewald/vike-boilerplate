@@ -2,12 +2,12 @@
 import { usePageContext } from '@/composables/usePageContext'
 import Hello from '@/components/HelloWorld.vue'
 
-const { routeParams, urlPathname } = usePageContext()
+const { routeParams, urlPathname } = usePageContext<{ name: string }>()
 </script>
 
 <template>
   <Hello msg="Content" />
   <div>
-    <div>{{ routeParams?.name || null }} | {{ urlPathname || null }}</div>
+    <div>{{ routeParams?.name }} | {{ urlPathname }}</div>
   </div>
 </template>

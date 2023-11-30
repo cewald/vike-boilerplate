@@ -3,11 +3,11 @@
 
 import { inject } from 'vue'
 import type { App, InjectionKey } from 'vue'
-import { type PageContext } from '@/renderer/types'
+import type { PageContext, PageContextWithRouteParams } from '@/renderer/types'
 
-const key: InjectionKey<PageContext> = Symbol('pageContext')
+const key: InjectionKey<PageContextWithRouteParams> = Symbol('pageContext')
 
-function usePageContext() {
+function usePageContext<T>(): PageContextWithRouteParams<T> {
   const pageContext = inject(key)
   if (!pageContext) throw new Error('setPageContext() not called in parent')
   return pageContext
