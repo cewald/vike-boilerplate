@@ -1,5 +1,5 @@
 {
-  "name": "@cewald/vike-app",
+  "name": "@cewald/vike-boilerplate",
   "image": "mcr.microsoft.com/devcontainers/typescript-node:1-20-bullseye",
   "features": {
     "ghcr.io/devcontainers/features/github-cli:1": {},
