@@ -1,6 +1,8 @@
 import type { App } from 'vue'
 import { renderToString as renderToString_ } from '@vue/server-renderer'
 import { escapeInject, dangerouslySkipEscape } from 'vike/server'
+import { renderSSRHead } from '@unhead/ssr'
+
 import { createApp } from '@/main'
 import { type PageContextServer } from '@/renderer/types'
 
@@ -8,34 +10,26 @@ async function render(pageContext: PageContextServer): Promise<any> {
   const { Page, pageProps } = pageContext
   // This render() hook only supports SSR, see https://vike.dev/render-modes for how to modify render() to support SPA
   if (!Page) throw new Error('My render() hook expects pageContext.Page to be defined')
-  const app = createApp(Page, pageProps, pageContext)
+  const { app, head } = createApp(Page, pageProps, pageContext)
 
   const appHtml = await renderToString(app)
 
-  // See https://vike.dev/head
-  const { documentProps } = pageContext.exports
-  const title = (documentProps && documentProps.title) || 'Vite SSR app'
-  const desc = (documentProps && documentProps.description) || 'App using Vite + Vike'
-
+  const payload = await renderSSRHead(head)
   const documentHtml = escapeInject`<!DOCTYPE html>
-    <html lang="en">
+    <html${dangerouslySkipEscape(payload.htmlAttrs)}>
       <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="description" content="${desc}" />
-        <title>${title}</title>
+        ${dangerouslySkipEscape(payload.headTags)}
       </head>
-      <body>
+      <body${dangerouslySkipEscape(payload.bodyAttrs)}>
+        ${dangerouslySkipEscape(payload.bodyTagsOpen)}
         <div id="app">${dangerouslySkipEscape(appHtml)}</div>
+        ${dangerouslySkipEscape(payload.bodyTags)}
       </body>
     </html>`
 
   return {
     documentHtml,
-    pageContext: {
-      // We can add some `pageContext` here, which is useful if we want
-      // to do page redirection https://vike.dev/page-redirection
-    }
+    pageContext: {}
   }
 }
 

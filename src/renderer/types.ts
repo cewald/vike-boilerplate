@@ -1,5 +1,6 @@
 import type { ComponentPublicInstance } from 'vue'
 import type { PageContextServer, PageContext } from 'vike/types'
+import type { Unhead } from '@unhead/schema'
 
 // https://vike.dev/pageContext#typescript
 declare global {
@@ -38,7 +39,5 @@ export type PageContextWithRouteParams<T = Record<string, string>> = PageContext
 export type Component = ComponentPublicInstance
 export type Page = Component
 export type PageProps = {
-  content: {
-    name: string
-  }
+  head: Unhead
 }

@@ -2,7 +2,9 @@ import '@/assets/main.scss'
 
 import { createSSRApp, defineComponent, h } from 'vue'
 import { createPinia } from 'pinia'
+import { createHead, CapoPlugin } from 'unhead'
 import App from '@/App.vue'
+
 import { setPageContext } from '@/composables/usePageContext'
 import type { Component, PageContext, PageProps } from '@/renderer/types'
 
@@ -14,7 +16,7 @@ export function createApp(Page: Component, pageProps: PageProps | undefined, pag
         {},
         {
           default() {
-            return h(Page, pageProps || {})
+            return h(Page, pageProps)
           }
         }
       )
@@ -24,8 +26,11 @@ export function createApp(Page: Component, pageProps: PageProps | undefined, pag
   const app = createSSRApp(PageComponent)
   app.use(createPinia())
 
+  const head = createHead()
+  head.use(CapoPlugin({}))
+
   // Make pageContext available from any Vue component
   setPageContext(app, pageContext)
 
-  return app
+  return { app, head }
 }

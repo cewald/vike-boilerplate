@@ -1,9 +1,25 @@
 <script setup lang="ts">
+import { urls as contentUrls } from '@/pages/content/index.page.route'
+import { useHead } from 'unhead'
+
 import HelloWorld from '@/components/HelloWorld.vue'
 import TheWelcome from '@/components/TheWelcome.vue'
 import VikeLink from '@/components/VikeLink.vue'
 import Logo from '@/assets/logo.svg'
-import { urls as contentUrls } from '@/pages/content/index.page.route'
+
+useHead({
+  titleTemplate: '%s %separator %siteName',
+  templateParams: { separator: '|', siteName: 'Vue3 SSR App' },
+  htmlAttrs: { lang: 'en' },
+  link: [
+    { rel: 'icon', href: 'favicon.ico', sizes: 'any' },
+  ],
+  meta: [
+    { charset: 'utf-8' },
+    { name: 'viewport', content: 'width=device-width' },
+    { name: 'description', content: 'App using Vue3, Vite + Vike' },
+  ],
+})
 </script>
 
 <template>
