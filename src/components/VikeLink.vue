@@ -1,16 +1,20 @@
-<script setup lang="ts">
-import { navigate } from 'vike/client/router'
+<script lang="ts" setup>
+import { useAttrs, computed } from 'vue'
+import { usePageContext } from '@/composables/usePageContext'
 
-defineProps<{
-  href: string
-}>()
+const pageContext = usePageContext()
+const { href } = useAttrs()
+
+const isActive = computed(() => {
+  const { urlPathname: path } = pageContext
+  return href === '/' ? path === href : path.startsWith(href as string)
+})
 </script>
 
 <template>
   <a
-    :href="href"
-    @click="false; navigate(href)"
     class="hover:underline"
+    :class="{ 'font-bold': isActive }"
   >
     <slot />
   </a>

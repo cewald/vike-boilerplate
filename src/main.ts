@@ -29,10 +29,9 @@ export function createApp(pageContext: PageContext) {
 
   const app = createSSRApp(PageWithWrapper)
   const pageContextReactive = reactive(pageContext)
-  
+
   objectAssign(app, {
     changePage: (pageContext: PageContext) => {
-      console.error('changePage', pageContext.urlPathname)
       Object.assign(pageContextReactive, pageContext)
       rootComponent.Page = markRaw(pageContext.Page)
       rootComponent.pageProps = markRaw(pageContext.pageProps || {})
