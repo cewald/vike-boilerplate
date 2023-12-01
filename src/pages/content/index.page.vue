@@ -1,13 +1,14 @@
 <script setup lang="ts">
+import { toRefs } from 'vue'
 import { usePageContext } from '@/composables/usePageContext'
 import { useHead } from 'unhead'
 
 import Hello from '@/components/HelloWorld.vue'
 
-const { routeParams, urlPathname } = usePageContext<{ name: string }>()
+const { routeParams, urlPathname } = toRefs(usePageContext<{ name: string }>())
 
 useHead({
-  title: `${routeParams?.name} | Content`
+  title: `${routeParams?.value?.name} | Content`
 })
 </script>
 
