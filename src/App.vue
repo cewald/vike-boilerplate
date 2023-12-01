@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import { urls as contentUrls } from '@/pages/content/index.page.route'
 import { useHead } from 'unhead'
 
 import HelloWorld from '@/components/HelloWorld.vue'
 import TheWelcome from '@/components/TheWelcome.vue'
-import VikeLink from '@/components/VikeLink.vue'
+import NavigationBar from '@/components/NavigationBar.vue'
 import Logo from '@/assets/logo.svg'
 
 useHead({
@@ -28,24 +27,7 @@ useHead({
       class="logo max-w-[125px]"
     />
     <div class="wrapper">
-      <nav>
-        <VikeLink href="/">
-          Index
-        </VikeLink>
-        <span>|</span>
-        <VikeLink href="/about">
-          About
-        </VikeLink>
-        <template
-          v-for="(href) in contentUrls"
-          :key="href"
-        >
-          <span>|</span>
-          <VikeLink :href="'/content/' + href">
-            {{ href }}
-          </VikeLink>
-        </template>
-      </nav>
+      <NavigationBar />
       <slot>
         <HelloWorld msg="Fallback" />
       </slot>
@@ -57,7 +39,7 @@ useHead({
   </main>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 header {
   line-height: 1.5;
 
@@ -113,4 +95,3 @@ header {
   }
 }
 </style>
-@/pages/content/index.page.route
