@@ -10,7 +10,7 @@ defineProps<{
       {{ msg }}
     </h1>
     <h2>
-      You’ve successfully created a project with
+      You’ve successfully created a project with<br>
       <a
         href="https://vitejs.dev/"
         target="_blank"
