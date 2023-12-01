@@ -11,7 +11,7 @@ useHead({
   templateParams: { separator: '|', siteName: 'Vue3 SSR App' },
   htmlAttrs: { lang: 'en' },
   link: [
-    { rel: 'icon', href: 'favicon.ico', sizes: 'any' },
+    { rel: 'icon', href: '/favicon.ico', sizes: 'any' },
   ],
   meta: [
     { charset: 'utf-8' },
