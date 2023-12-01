@@ -7,10 +7,9 @@ import { createApp } from '@/main'
 import { type PageContextServer } from '@/renderer/types'
 
 async function render(pageContext: PageContextServer): Promise<any> {
-  const { Page, pageProps } = pageContext
-  // This render() hook only supports SSR, see https://vike.dev/render-modes for how to modify render() to support SPA
+  const { Page } = pageContext
   if (!Page) throw new Error('My render() hook expects pageContext.Page to be defined')
-  const { app, head } = createApp(Page, pageProps, pageContext)
+  const { app, head } = createApp(pageContext)
 
   const appHtml = await renderToString(app)
 

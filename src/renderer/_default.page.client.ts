@@ -3,12 +3,15 @@ export { render }
 import { createApp } from '@/main'
 import type { PageContextClient } from '@/renderer/types'
 
-// This render() hook only supports SSR, see https://vike.dev/render-modes for how to modify render() to support SPA
+let appInstance: ReturnType<typeof createApp>
 async function render(pageContext: PageContextClient) {
   const { Page, pageProps } = pageContext
-  if (!Page) throw new Error('Client-side render() hook expects pageContext.Page to be defined')
-  const { app } = createApp(Page, pageProps, pageContext)
-  app.mount('#app')
+  if (!appInstance) {
+    appInstance = createApp(pageContext)
+    appInstance.app.mount('#app')
+  } else {
+    appInstance.app.changePage(pageContext)
+  }
 }
 
 export const clientRouting = true
