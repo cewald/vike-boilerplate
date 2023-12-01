@@ -10,17 +10,9 @@ import type { Component, PageContext, PageProps } from '@/renderer/types'
 
 export function createApp(Page: Component, pageProps: PageProps | undefined, pageContext: PageContext) {
   const PageComponent = defineComponent({
-    render() {
-      return h(
-        App,
-        {},
-        {
-          default() {
-            return h(Page, pageProps)
-          }
-        }
-      )
-    }
+    render: () => h(
+      App, {}, { default: () => h(Page, pageProps) }
+    )
   })
 
   const app = createSSRApp(PageComponent)
