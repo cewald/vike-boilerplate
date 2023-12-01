@@ -9,7 +9,7 @@ defineProps<{
     <h1 class="green">
       {{ msg }}
     </h1>
-    <h3>
+    <h2>
       You’ve successfully created a project with
       <a
         href="https://vitejs.dev/"
@@ -26,7 +26,7 @@ defineProps<{
         target="_blank"
         rel="noopener"
       >Vike</a>.
-    </h3>
+    </h2>
   </div>
 </template>
 
@@ -43,13 +43,13 @@ h3 {
 }
 
 .greetings h1,
-.greetings h3 {
+.greetings h2 {
   text-align: center;
 }
 
 @media (min-width: 1024px) {
   .greetings h1,
-  .greetings h3 {
+  .greetings h2 {
     text-align: left;
   }
 }
