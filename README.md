@@ -1,4 +1,4 @@
-# @cewald/vike-boilerplate
+# @cewald/vike-boilerplate [![Netlify Status](https://api.netlify.com/api/v1/badges/b30960f3-4e03-4bba-b7d1-f812ccb194a1/deploy-status)](https://app.netlify.com/sites/vike-vue3-boilerplate/deploys)
 
 This template should help get you started developing with Vue 3 in Vite using Vike (SSG).
 
