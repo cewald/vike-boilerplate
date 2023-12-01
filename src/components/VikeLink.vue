@@ -9,7 +9,7 @@ defineProps<{
 <template>
   <a
     :href="href"
-    @click.prevent="navigate(href)"
+    @click="false; navigate(href)"
     class="hover:underline"
   >
     <slot />
